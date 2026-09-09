@@ -1,0 +1,47 @@
+# Local Python environments, caches and editor files
+.venv*/
+venv*/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+*.egg-info/
+build/
+dist/
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+~$*
+
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.streamlit/secrets.toml
+
+# Large runtime artifacts; selected trained models are excepted below
+*.pt
+*.pth
+*.h5
+*.hdf5
+*.joblib
+*.pkl
+*.pickle
+*.npy
+*.npz
+*.parquet
+*.zip
+*.rar
+*.mp4
+*.avi
+*.mov
+
+/data/
+/outputs/
+# Keep the six selected checkpoints with their experiment records.
+!doc/experiments/*/best_checkpoint.pt

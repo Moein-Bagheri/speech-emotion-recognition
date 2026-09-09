@@ -1,0 +1,198 @@
+{
+  "dataset": {
+    "all_label_counts": {
+      "angry": 1269,
+      "disgust": 2,
+      "excited": 1976,
+      "fear": 107,
+      "frustrated": 2917,
+      "happy": 656,
+      "neutral": 1726,
+      "other": 26,
+      "sad": 1250,
+      "surprise": 110
+    },
+    "duration_seconds": {
+      "max": 31.91,
+      "mean": 4.481342914711284,
+      "min": 0.73,
+      "std": 3.1362807224072915,
+      "total": 21963.061625000002
+    },
+    "num_speakers": 10,
+    "selected_label_counts": {
+      "Angry": 1269,
+      "Happy": 656,
+      "Neutral": 1726,
+      "Sad": 1250
+    },
+    "selected_rows": 4901,
+    "speakers": [
+      "Ses01F",
+      "Ses01M",
+      "Ses02F",
+      "Ses02M",
+      "Ses03F",
+      "Ses03M",
+      "Ses04F",
+      "Ses04M",
+      "Ses05F",
+      "Ses05M"
+    ],
+    "total_rows": 10039
+  },
+  "random": {
+    "test": {
+      "label_counts": {
+        "Angry": 254,
+        "Happy": 131,
+        "Neutral": 346,
+        "Sad": 250
+      },
+      "num_samples": 981,
+      "ratio": 0.20016323199347072,
+      "speakers": [
+        "Ses01F",
+        "Ses01M",
+        "Ses02F",
+        "Ses02M",
+        "Ses03F",
+        "Ses03M",
+        "Ses04F",
+        "Ses04M",
+        "Ses05F",
+        "Ses05M"
+      ]
+    },
+    "train": {
+      "label_counts": {
+        "Angry": 888,
+        "Happy": 459,
+        "Neutral": 1208,
+        "Sad": 875
+      },
+      "num_samples": 3430,
+      "ratio": 0.6998571720057131,
+      "speakers": [
+        "Ses01F",
+        "Ses01M",
+        "Ses02F",
+        "Ses02M",
+        "Ses03F",
+        "Ses03M",
+        "Ses04F",
+        "Ses04M",
+        "Ses05F",
+        "Ses05M"
+      ]
+    },
+    "val": {
+      "label_counts": {
+        "Angry": 127,
+        "Happy": 66,
+        "Neutral": 172,
+        "Sad": 125
+      },
+      "num_samples": 490,
+      "ratio": 0.09997959600081616,
+      "speakers": [
+        "Ses01F",
+        "Ses01M",
+        "Ses02F",
+        "Ses02M",
+        "Ses03F",
+        "Ses03M",
+        "Ses04F",
+        "Ses04M",
+        "Ses05F",
+        "Ses05M"
+      ]
+    }
+  },
+  "random_speaker_overlap": {
+    "test": [
+      "Ses01F",
+      "Ses01M",
+      "Ses02F",
+      "Ses02M",
+      "Ses03F",
+      "Ses03M",
+      "Ses04F",
+      "Ses04M",
+      "Ses05F",
+      "Ses05M"
+    ],
+    "train": [
+      "Ses01F",
+      "Ses01M",
+      "Ses02F",
+      "Ses02M",
+      "Ses03F",
+      "Ses03M",
+      "Ses04F",
+      "Ses04M",
+      "Ses05F",
+      "Ses05M"
+    ],
+    "val": [
+      "Ses01F",
+      "Ses01M",
+      "Ses02F",
+      "Ses02M",
+      "Ses03F",
+      "Ses03M",
+      "Ses04F",
+      "Ses04M",
+      "Ses05F",
+      "Ses05M"
+    ]
+  },
+  "speaker_disjoint": {
+    "test": {
+      "label_counts": {
+        "Angry": 261,
+        "Happy": 118,
+        "Neutral": 324,
+        "Sad": 243
+      },
+      "num_samples": 946,
+      "ratio": 0.1930218322791267,
+      "speakers": [
+        "Ses04M",
+        "Ses05F"
+      ]
+    },
+    "train": {
+      "label_counts": {
+        "Angry": 901,
+        "Happy": 460,
+        "Neutral": 1209,
+        "Sad": 859
+      },
+      "num_samples": 3429,
+      "ratio": 0.6996531320138747,
+      "speakers": [
+        "Ses01F",
+        "Ses01M",
+        "Ses02F",
+        "Ses02M",
+        "Ses03F",
+        "Ses03M",
+        "Ses04F"
+      ]
+    },
+    "val": {
+      "label_counts": {
+        "Angry": 107,
+        "Happy": 78,
+        "Neutral": 193,
+        "Sad": 148
+      },
+      "num_samples": 526,
+      "ratio": 0.10732503570699857,
+      "speakers": [
+        "Ses05M"
+      ]
+    }
+  }
+}

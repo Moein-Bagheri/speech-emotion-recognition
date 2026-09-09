@@ -1,0 +1,151 @@
+{
+  "best_epoch": 3,
+  "best_validation_loss": 1.0165303562530548,
+  "best_validation_weighted_f1": 0.5578826031546242,
+  "class_weights": null,
+  "config": {
+    "architecture": "residual",
+    "batch_size": 32,
+    "class_weighting": "none",
+    "device": "cuda",
+    "epochs": 30,
+    "experiment_name": "speaker_residual_mfcc_head",
+    "feature_mode": "mfcc",
+    "feature_path": "D:\\Uni term 8\\Natural Language Processing\\Projects\\Tamrin3\\data\\processed\\features_head.npy",
+    "learning_rate": 0.001,
+    "lengths_path": "D:\\Uni term 8\\Natural Language Processing\\Projects\\Tamrin3\\data\\processed\\valid_lengths.npy",
+    "masked_pooling": false,
+    "metadata_csv": "D:\\Uni term 8\\Natural Language Processing\\Projects\\Tamrin3\\data\\processed\\metadata.csv",
+    "num_workers": 0,
+    "output_dir": "D:\\Uni term 8\\Natural Language Processing\\Projects\\Tamrin3\\outputs",
+    "seed": 42,
+    "split_csv": "D:\\Uni term 8\\Natural Language Processing\\Projects\\Tamrin3\\data\\processed\\split_speaker.csv",
+    "use_amp": true
+  },
+  "confusion_matrix": [
+    [
+      176,
+      0,
+      73,
+      12
+    ],
+    [
+      33,
+      2,
+      52,
+      31
+    ],
+    [
+      56,
+      7,
+      173,
+      88
+    ],
+    [
+      13,
+      0,
+      39,
+      191
+    ]
+  ],
+  "device": {
+    "amp_enabled": true,
+    "cuda_version": "13.0",
+    "name": "NVIDIA GeForce RTX 3060 Laptop GPU",
+    "torch_version": "2.9.1+cu130",
+    "type": "cuda"
+  },
+  "experiment_name": "speaker_residual_mfcc_head",
+  "normalization": {
+    "computed_from": "training split only",
+    "num_channels": 40
+  },
+  "num_trainable_parameters": 502532,
+  "per_class": {
+    "Angry": {
+      "f1": 0.6530612244897959,
+      "precision": 0.6330935251798561,
+      "recall": 0.6743295019157088,
+      "support": 261
+    },
+    "Happy": {
+      "f1": 0.031496062992125984,
+      "precision": 0.2222222222222222,
+      "recall": 0.01694915254237288,
+      "support": 118
+    },
+    "Neutral": {
+      "f1": 0.5234493192133132,
+      "precision": 0.5133531157270029,
+      "recall": 0.5339506172839507,
+      "support": 324
+    },
+    "Sad": {
+      "f1": 0.6761061946902654,
+      "precision": 0.593167701863354,
+      "recall": 0.7860082304526749,
+      "support": 243
+    }
+  },
+  "split_summary": {
+    "test": {
+      "label_counts": {
+        "Angry": 261,
+        "Happy": 118,
+        "Neutral": 324,
+        "Sad": 243
+      },
+      "num_samples": 946,
+      "ratio": 0.1930218322791267,
+      "speakers": [
+        "Ses04M",
+        "Ses05F"
+      ]
+    },
+    "train": {
+      "label_counts": {
+        "Angry": 901,
+        "Happy": 460,
+        "Neutral": 1209,
+        "Sad": 859
+      },
+      "num_samples": 3429,
+      "ratio": 0.6996531320138747,
+      "speakers": [
+        "Ses01F",
+        "Ses01M",
+        "Ses02F",
+        "Ses02M",
+        "Ses03F",
+        "Ses03M",
+        "Ses04F"
+      ]
+    },
+    "val": {
+      "label_counts": {
+        "Angry": 107,
+        "Happy": 78,
+        "Neutral": 193,
+        "Sad": 148
+      },
+      "num_samples": 526,
+      "ratio": 0.10732503570699857,
+      "speakers": [
+        "Ses05M"
+      ]
+    }
+  },
+  "test": {
+    "accuracy": 0.572938689217759,
+    "loss": 1.0174361752153198,
+    "macro_f1": 0.47102820034637516,
+    "weighted_f1": 0.5370580335726802
+  },
+  "training_label_counts": {
+    "Angry": 901,
+    "Happy": 460,
+    "Neutral": 1209,
+    "Sad": 859
+  },
+  "training_seconds": 48.378900800133124
+}
