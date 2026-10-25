@@ -1,54 +1,42 @@
-# Speech Emotion Recognition
+# Speech emotion recognition
 
-Recognizing **angry, happy, neutral and sad** speech with MFCC features and one-dimensional convolutional networks. This university NLP project compares random and speaker-independent splits, then explores architecture and feature choices across six saved experiments.
+**Can a model hear emotion in a stranger's voice?** Less than it seems. A 1D CNN on MFCC features scores 65.1% on a random split of IEMOCAP, and 58.0% when the test speakers were never heard in training.
 
-**Python · PyTorch · librosa · pandas · scikit-learn**
+<img src="doc/experiments/speaker_plain_mfcc_head/confusion_matrix.png" width="440" alt="Confusion matrix on unseen speakers: angry and neutral are recognized best, happy is mostly heard as neutral">
 
-[گزارش فارسی](doc/report_fa.md) · [All experiment results](doc/tables/experiment_results.md)
+*PyTorch · librosa · scikit-learn* · [Full report (Persian)](doc/report_fa.md) · [All results](doc/tables/experiment_results.md)
 
-![Confusion matrix for the speaker-independent plain CNN](doc/experiments/speaker_plain_mfcc_head/confusion_matrix.png)
+## What I did
 
-## What the project includes
+- Took four emotions (angry, happy, neutral, sad) from IEMOCAP: 4,901 utterances from 10 speakers.
+- Turned each clip into a fixed-length sequence of 40 MFCCs per frame, optionally with deltas.
+- Built plain and residual 1D CNNs and ran six experiments: random against speaker-independent splits, feature sets, head or tail truncation, masked pooling.
+- Held out two speakers entirely (946 test clips) to see what the model does with voices it has never heard.
 
-- Audio duration and label-distribution analysis for the selected IEMOCAP subset.
-- MFCC extraction, optional delta/delta-delta features, and fixed-length sequences.
-- Plain and residual 1D CNN implementations.
-- Random and speaker-independent evaluation, with head/tail truncation and masking variants.
-- Training histories, confusion matrices, per-class results and the best checkpoint from each experiment.
-- A command-line predictor for individual WAV files.
+## What I found
 
-## Recorded results
+| Setting | Accuracy | Macro F1 |
+| --- | ---: | ---: |
+| Random split, plain CNN | 65.1% | 0.62 |
+| Unseen speakers, plain CNN | 58.0% | 0.52 |
+| Unseen speakers, plain CNN with MFCC deltas | 60.0% | 0.49 |
+| Unseen speakers, residual CNN (2.5× the parameters) | 57.3% | 0.47 |
 
-These values are retained from the original project experiments. They summarize different evaluation settings, so the split should be reported alongside each score.
+- **Random splits flatter the model.** When the same speakers appear in training and test, the model can lean on voices it already knows. On new speakers, seven points disappear.
+- **Bigger isn't better here.** The residual network has 2.5 times the parameters and does worse.
+- **Accuracy can hide the hardest class.** *Happy* is the smallest class (13% of the data). On unseen speakers the plain CNN hears it as *neutral* half the time, and with deltas, accuracy goes up while the model stops predicting *happy* at all.
 
-| Split | Architecture | Accuracy | Weighted F1 |
-| --- | --- | ---: | ---: |
-| Random | Plain 1D CNN | 0.6514 | 0.6516 |
-| Speaker-independent | Plain 1D CNN | 0.5803 | 0.5718 |
-| Speaker-independent | Residual 1D CNN | 0.5729 | 0.5371 |
+## Try it
 
-The [Persian report](doc/report_fa.md) discusses the split comparison, class-level behavior and all six runs. Machine-readable results are in [`doc/tables/experiment_results.csv`](doc/tables/experiment_results.csv).
-
-## Setup and prediction
-
-The original project documents Python 3.11 or 3.12. Run these commands from the repository root in Windows PowerShell:
+The trained speaker-independent model is included, so you can run it on your own WAV file without downloading the dataset:
 
 ```powershell
 py -3.12 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r code\requirements.txt
-```
-
-The saved speaker-independent model is included, so prediction does not require downloading the training dataset:
-
-```powershell
 .\.venv\Scripts\python.exe code\predict.py doc\experiments\speaker_plain_mfcc_head\best_checkpoint.pt path\to\sample.wav
 ```
 
-Replace `path\to\sample.wav` with an audio file. The other five best checkpoints are stored in their corresponding experiment directories.
-
-## Data and training
-
-Raw audio, downloaded shards and feature caches are excluded. The original data source and label mapping are documented in the report; `code/download_data.py` contains the configured download workflow.
+To rebuild everything from the data:
 
 ```powershell
 .\.venv\Scripts\python.exe code\download_data.py
@@ -58,22 +46,13 @@ Raw audio, downloaded shards and feature caches are excluded. The original data 
 .\.venv\Scripts\python.exe code\summarize_results.py
 ```
 
-For one experiment:
+## Layout
 
-```powershell
-.\.venv\Scripts\python.exe code\train_model.py --architecture plain --feature-mode mfcc --split-strategy speaker --truncation head
-```
-
-## Repository layout
-
-| Path | Contents |
+| Path | What's there |
 | --- | --- |
-| [`code/ser/`](code/ser/) | Data preparation, feature extraction, models and training modules |
-| [`code/predict.py`](code/predict.py) | WAV-file inference using a saved checkpoint |
-| [`doc/report_fa.md`](doc/report_fa.md) | Full analysis in Persian |
-| [`doc/experiments/`](doc/experiments/) | Six experiment records and best checkpoints |
-| [`doc/figures/eda/`](doc/figures/eda/) | Dataset overview figures |
-| [`doc/tables/`](doc/tables/) | Summary statistics and result tables |
-| [`code/tests/`](code/tests/) | Tests included with the original project |
+| [`code/ser/`](code/ser/) | Data, features, models and training |
+| [`code/predict.py`](code/predict.py) | The emotion of one WAV file |
+| [`doc/experiments/`](doc/experiments/) | Six runs: metrics, curves, confusion matrices and best checkpoints |
+| [`doc/report_fa.md`](doc/report_fa.md) | The full analysis, in Persian |
 
-Developed as university coursework in natural language processing. Scores above describe the saved project runs.
+Natural language processing course project, University of Isfahan, 2026.
