@@ -26,7 +26,11 @@ from .config import (
 )
 from .utils import ensure_directory
 
-SPEAKER_PATTERN = re.compile(r"^(Ses\d{2}[FM])_")
+# An IEMOCAP utterance is named after its dialog, then its speaker. In Ses04M_impro01_F000 the dialog is
+# Ses04M_impro01 (session 4, recorded while the male actor wore the markers) and F000 is the session's
+# female actor speaking. Both actors speak in every dialog, so the speaker is the session plus the
+# letter of the last part, never the dialog prefix.
+SPEAKER_PATTERN = re.compile(r"^(Ses\d{2})[FM]_.+_([FM])\d{3}(?:\.wav)?$")
 SPLIT_ORDER = ("train", "val", "test")
 
 
@@ -75,12 +79,16 @@ def audio_bytes_from_value(audio_value: Any) -> bytes:
 
 
 def speaker_from_filename(filename: str) -> str:
-    """Parse one of the ten IEMOCAP speaker IDs (for example ``Ses01F``)."""
+    """Return which of the ten IEMOCAP actors speaks an utterance (for example ``Ses04F``).
+
+    ``Ses04M_impro01_F000.wav`` is spoken by ``Ses04F``: the prefix names the dialog, and the
+    letter of the last part names the speaker.
+    """
 
     match = SPEAKER_PATTERN.match(filename)
     if not match:
         raise ValueError(f"Cannot parse speaker ID from filename: {filename}")
-    return match.group(1)
+    return match.group(1) + match.group(2)
 
 
 def iter_dataset_rows(

@@ -148,51 +148,51 @@
     ]
   },
   "speaker_disjoint": {
-    "test": {
-      "label_counts": {
-        "Angry": 261,
-        "Happy": 118,
-        "Neutral": 324,
-        "Sad": 243
-      },
-      "num_samples": 946,
-      "ratio": 0.1930218322791267,
-      "speakers": [
-        "Ses04M",
-        "Ses05F"
-      ]
-    },
     "train": {
-      "label_counts": {
-        "Angry": 901,
-        "Happy": 460,
-        "Neutral": 1209,
-        "Sad": 859
-      },
-      "num_samples": 3429,
-      "ratio": 0.6996531320138747,
+      "num_samples": 3449,
+      "ratio": 0.7037339318506427,
       "speakers": [
         "Ses01F",
         "Ses01M",
-        "Ses02F",
         "Ses02M",
         "Ses03F",
-        "Ses03M",
-        "Ses04F"
-      ]
+        "Ses04F",
+        "Ses04M",
+        "Ses05F"
+      ],
+      "label_counts": {
+        "Angry": 918,
+        "Happy": 446,
+        "Neutral": 1233,
+        "Sad": 852
+      }
     },
     "val": {
-      "label_counts": {
-        "Angry": 107,
-        "Happy": 78,
-        "Neutral": 193,
-        "Sad": 148
-      },
-      "num_samples": 526,
-      "ratio": 0.10732503570699857,
+      "num_samples": 478,
+      "ratio": 0.09753111609875535,
       "speakers": [
         "Ses05M"
-      ]
+      ],
+      "label_counts": {
+        "Angry": 109,
+        "Happy": 70,
+        "Neutral": 164,
+        "Sad": 135
+      }
+    },
+    "test": {
+      "num_samples": 974,
+      "ratio": 0.19873495205060193,
+      "speakers": [
+        "Ses02F",
+        "Ses03M"
+      ],
+      "label_counts": {
+        "Angry": 242,
+        "Happy": 140,
+        "Neutral": 329,
+        "Sad": 263
+      }
     }
   }
 }

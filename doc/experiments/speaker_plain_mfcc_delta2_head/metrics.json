@@ -1,59 +1,59 @@
 {
-  "best_epoch": 2,
-  "best_validation_loss": 1.0661109953325512,
-  "best_validation_weighted_f1": 0.5547103772067692,
+  "best_epoch": 6,
+  "best_validation_loss": 1.1505112106830007,
+  "best_validation_weighted_f1": 0.5936740660459175,
   "class_weights": null,
   "config": {
     "architecture": "plain",
     "batch_size": 32,
     "class_weighting": "none",
-    "device": "cuda",
+    "device": "cpu",
     "epochs": 30,
     "experiment_name": "speaker_plain_mfcc_delta2_head",
     "feature_mode": "mfcc_delta2",
-    "feature_path": "D:\\Uni term 8\\Natural Language Processing\\Projects\\Tamrin3\\data\\processed\\features_head.npy",
+    "feature_path": "data/processed/features_head.npy",
     "learning_rate": 0.001,
-    "lengths_path": "D:\\Uni term 8\\Natural Language Processing\\Projects\\Tamrin3\\data\\processed\\valid_lengths.npy",
+    "lengths_path": "data/processed/valid_lengths.npy",
     "masked_pooling": false,
-    "metadata_csv": "D:\\Uni term 8\\Natural Language Processing\\Projects\\Tamrin3\\data\\processed\\metadata.csv",
+    "metadata_csv": "data/processed/metadata.csv",
     "num_workers": 0,
-    "output_dir": "D:\\Uni term 8\\Natural Language Processing\\Projects\\Tamrin3\\outputs",
+    "output_dir": "outputs",
     "seed": 42,
-    "split_csv": "D:\\Uni term 8\\Natural Language Processing\\Projects\\Tamrin3\\data\\processed\\split_speaker.csv",
+    "split_csv": "data/processed/split_speaker.csv",
     "use_amp": true
   },
   "confusion_matrix": [
     [
-      185,
-      0,
-      67,
-      9
+      116,
+      47,
+      46,
+      33
     ],
     [
-      18,
-      0,
-      79,
-      21
+      15,
+      33,
+      49,
+      43
     ],
     [
-      52,
-      0,
-      226,
-      46
+      24,
+      61,
+      131,
+      113
     ],
     [
-      21,
-      0,
-      65,
-      157
+      9,
+      15,
+      39,
+      200
     ]
   ],
   "device": {
-    "amp_enabled": true,
-    "cuda_version": "13.0",
-    "name": "NVIDIA GeForce RTX 3060 Laptop GPU",
-    "torch_version": "2.9.1+cu130",
-    "type": "cuda"
+    "amp_enabled": false,
+    "cuda_version": null,
+    "name": "CPU",
+    "torch_version": "2.9.1+cpu",
+    "type": "cpu"
   },
   "experiment_name": "speaker_plain_mfcc_delta2_head",
   "normalization": {
@@ -63,89 +63,89 @@
   "num_trainable_parameters": 214084,
   "per_class": {
     "Angry": {
-      "f1": 0.6890130353817505,
-      "precision": 0.6702898550724637,
-      "recall": 0.7088122605363985,
-      "support": 261
+      "f1": 0.5714285714285714,
+      "precision": 0.7073170731707317,
+      "recall": 0.4793388429752066,
+      "support": 242
     },
     "Happy": {
-      "f1": 0.0,
-      "precision": 0.0,
-      "recall": 0.0,
-      "support": 118
+      "f1": 0.22297297297297297,
+      "precision": 0.21153846153846154,
+      "recall": 0.2357142857142857,
+      "support": 140
     },
     "Neutral": {
-      "f1": 0.5939553219448095,
-      "precision": 0.517162471395881,
-      "recall": 0.6975308641975309,
-      "support": 324
+      "f1": 0.44107744107744107,
+      "precision": 0.49433962264150944,
+      "recall": 0.3981762917933131,
+      "support": 329
     },
     "Sad": {
-      "f1": 0.6596638655462185,
-      "precision": 0.6738197424892703,
-      "recall": 0.6460905349794238,
-      "support": 243
+      "f1": 0.6134969325153374,
+      "precision": 0.5141388174807198,
+      "recall": 0.7604562737642585,
+      "support": 263
     }
   },
   "split_summary": {
     "test": {
       "label_counts": {
-        "Angry": 261,
-        "Happy": 118,
-        "Neutral": 324,
-        "Sad": 243
+        "Angry": 242,
+        "Happy": 140,
+        "Neutral": 329,
+        "Sad": 263
       },
-      "num_samples": 946,
-      "ratio": 0.1930218322791267,
+      "num_samples": 974,
+      "ratio": 0.19873495205060193,
       "speakers": [
-        "Ses04M",
-        "Ses05F"
+        "Ses02F",
+        "Ses03M"
       ]
     },
     "train": {
       "label_counts": {
-        "Angry": 901,
-        "Happy": 460,
-        "Neutral": 1209,
-        "Sad": 859
+        "Angry": 918,
+        "Happy": 446,
+        "Neutral": 1233,
+        "Sad": 852
       },
-      "num_samples": 3429,
-      "ratio": 0.6996531320138747,
+      "num_samples": 3449,
+      "ratio": 0.7037339318506427,
       "speakers": [
         "Ses01F",
         "Ses01M",
-        "Ses02F",
         "Ses02M",
         "Ses03F",
-        "Ses03M",
-        "Ses04F"
+        "Ses04F",
+        "Ses04M",
+        "Ses05F"
       ]
     },
     "val": {
       "label_counts": {
-        "Angry": 107,
-        "Happy": 78,
-        "Neutral": 193,
-        "Sad": 148
+        "Angry": 109,
+        "Happy": 70,
+        "Neutral": 164,
+        "Sad": 135
       },
-      "num_samples": 526,
-      "ratio": 0.10732503570699857,
+      "num_samples": 478,
+      "ratio": 0.09753111609875535,
       "speakers": [
         "Ses05M"
       ]
     }
   },
   "test": {
-    "accuracy": 0.6004228329809725,
-    "loss": 1.0355482789477133,
-    "macro_f1": 0.48565805571819465,
-    "weighted_f1": 0.5629727757637275
+    "accuracy": 0.4928131416837782,
+    "loss": 1.3333360345946201,
+    "macro_f1": 0.46224397949858076,
+    "weighted_f1": 0.48867156249275395
   },
   "training_label_counts": {
-    "Angry": 901,
-    "Happy": 460,
-    "Neutral": 1209,
-    "Sad": 859
+    "Angry": 918,
+    "Happy": 446,
+    "Neutral": 1233,
+    "Sad": 852
   },
-  "training_seconds": 39.36894019995816
+  "training_seconds": 109.26769929999136
 }

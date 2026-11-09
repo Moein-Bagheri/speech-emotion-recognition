@@ -1,59 +1,59 @@
 {
-  "best_epoch": 25,
-  "best_validation_loss": 1.583475906994878,
-  "best_validation_weighted_f1": 0.6257121389239867,
+  "best_epoch": 29,
+  "best_validation_loss": 1.6068433294490891,
+  "best_validation_weighted_f1": 0.6267046730890982,
   "class_weights": null,
   "config": {
     "architecture": "plain",
     "batch_size": 32,
     "class_weighting": "none",
-    "device": "cuda",
+    "device": "cpu",
     "epochs": 30,
     "experiment_name": "random_plain_mfcc_head",
     "feature_mode": "mfcc",
-    "feature_path": "D:\\Uni term 8\\Natural Language Processing\\Projects\\Tamrin3\\data\\processed\\features_head.npy",
+    "feature_path": "data/processed/features_head.npy",
     "learning_rate": 0.001,
-    "lengths_path": "D:\\Uni term 8\\Natural Language Processing\\Projects\\Tamrin3\\data\\processed\\valid_lengths.npy",
+    "lengths_path": "data/processed/valid_lengths.npy",
     "masked_pooling": false,
-    "metadata_csv": "D:\\Uni term 8\\Natural Language Processing\\Projects\\Tamrin3\\data\\processed\\metadata.csv",
+    "metadata_csv": "data/processed/metadata.csv",
     "num_workers": 0,
-    "output_dir": "D:\\Uni term 8\\Natural Language Processing\\Projects\\Tamrin3\\outputs",
+    "output_dir": "outputs",
     "seed": 42,
-    "split_csv": "D:\\Uni term 8\\Natural Language Processing\\Projects\\Tamrin3\\data\\processed\\split_random.csv",
+    "split_csv": "data/processed/split_random.csv",
     "use_amp": true
   },
   "confusion_matrix": [
     [
-      176,
-      19,
-      51,
-      8
-    ],
-    [
-      8,
-      51,
-      48,
-      24
-    ],
-    [
-      28,
-      37,
-      242,
-      39
-    ],
-    [
-      10,
+      179,
       12,
-      58,
-      170
+      53,
+      10
+    ],
+    [
+      12,
+      47,
+      50,
+      22
+    ],
+    [
+      30,
+      37,
+      247,
+      32
+    ],
+    [
+      14,
+      11,
+      44,
+      181
     ]
   ],
   "device": {
-    "amp_enabled": true,
-    "cuda_version": "13.0",
-    "name": "NVIDIA GeForce RTX 3060 Laptop GPU",
-    "torch_version": "2.9.1+cu130",
-    "type": "cuda"
+    "amp_enabled": false,
+    "cuda_version": null,
+    "name": "CPU",
+    "torch_version": "2.9.1+cpu",
+    "type": "cpu"
   },
   "experiment_name": "random_plain_mfcc_head",
   "normalization": {
@@ -63,27 +63,27 @@
   "num_trainable_parameters": 198724,
   "per_class": {
     "Angry": {
-      "f1": 0.7394957983193278,
-      "precision": 0.7927927927927928,
-      "recall": 0.6929133858267716,
+      "f1": 0.7321063394683026,
+      "precision": 0.7617021276595745,
+      "recall": 0.7047244094488189,
       "support": 254
     },
     "Happy": {
-      "f1": 0.408,
-      "precision": 0.42857142857142855,
-      "recall": 0.3893129770992366,
+      "f1": 0.3949579831932773,
+      "precision": 0.4392523364485981,
+      "recall": 0.35877862595419846,
       "support": 131
     },
     "Neutral": {
-      "f1": 0.6496644295302013,
-      "precision": 0.606516290726817,
-      "recall": 0.6994219653179191,
+      "f1": 0.6675675675675675,
+      "precision": 0.6269035532994924,
+      "recall": 0.7138728323699421,
       "support": 346
     },
     "Sad": {
-      "f1": 0.6924643584521385,
-      "precision": 0.7053941908713693,
-      "recall": 0.68,
+      "f1": 0.7313131313131314,
+      "precision": 0.7387755102040816,
+      "recall": 0.724,
       "support": 250
     }
   },
@@ -156,10 +156,10 @@
     }
   },
   "test": {
-    "accuracy": 0.6513761467889908,
-    "loss": 1.3975874932898658,
-    "macro_f1": 0.6224061465754168,
-    "weighted_f1": 0.6515595463849068
+    "accuracy": 0.6666666666666666,
+    "loss": 1.4038385934178375,
+    "macro_f1": 0.6314862553855698,
+    "weighted_f1": 0.6641194365238833
   },
   "training_label_counts": {
     "Angry": 888,
@@ -167,5 +167,5 @@
     "Neutral": 1208,
     "Sad": 875
   },
-  "training_seconds": 29.4930712999776
+  "training_seconds": 102.46748849999858
 }
